@@ -5,6 +5,7 @@ become sqrt(number)
 """
 
 def isPrime(n):
+    # Checks if n is a prime number or not in log n time complexity
     if n <= 1:
         return False
     else:
