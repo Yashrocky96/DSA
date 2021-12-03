@@ -55,3 +55,39 @@ def binaryTreeSearching(root, k):
 		if binaryTreeSearching(root.right, k):
 			search = True
 	return search
+
+'''
+Deletes all leaf nodes in a given binary tree
+'''
+
+def binaryTreeDeletion(root):
+	if root:
+		if root.left is None and root.right is None:
+			return None
+		root.left = binaryTreeDeletion(root.left)
+		root.right = binaryTreeDeletion(root.right)
+	return root
+
+'''
+Does Level Order Traversal and outputs each level values
+in a separate line
+'''
+
+def binaryTreeLevelOrderTraversal(root):
+	if root is None:
+		return []
+	Q = deque()
+	Q.append(root)
+	res = []
+	while Q:
+		buff = []
+		for i in range(len(Q)):
+			temp = Q.popleft()
+			buff.append(temp.val)
+			# Push childs in queue
+			if temp.left:
+				Q.append(temp.left)
+			if temp.right:
+				Q.append(temp.right)
+		res.append(buff)
+	return res
