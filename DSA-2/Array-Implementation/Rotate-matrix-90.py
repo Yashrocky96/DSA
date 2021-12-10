@@ -2,7 +2,7 @@
 Rotate Matrix 90degrees Only function matters here
 """
 
-from crio.io import PrintMatrix
+# from crio.io import PrintMatrix
 
 class Solution:
     def __init__(self, matrix):
@@ -27,4 +27,4 @@ if __name__ == '__main__':
         matrix.append(nums)
     sol = Solution(matrix)
     sol.rotateImage()
-    PrintMatrix.SquareMatrix(sol.matrix)
+    # PrintMatrix.SquareMatrix(sol.matrix)
