@@ -91,3 +91,28 @@ def binaryTreeLevelOrderTraversal(root):
 				Q.append(temp.right)
 		res.append(buff)
 	return res
+
+"""
+Convert a given Binary Tree into a perfect Binary Tree
+"""
+
+def binaryTreeInsertion(root):
+	# Perform In-order traversal and check nodes null
+	# Convert null to val 0 node and convert BT into perfect BT
+
+	if root:
+		if root.left:
+			if root.right is None:
+				# Create Node
+				root.right = TreeNode.TreeNode(0)
+		elif root.right:
+			if root.left is None:
+				# Create Node
+				root.left = TreeNode.TreeNode(0)
+
+		# Recur on left and right subtree to check all nodes
+
+		binaryTreeInsertion(root.left)
+		binaryTreeInsertion(root.right)
+
+	return root

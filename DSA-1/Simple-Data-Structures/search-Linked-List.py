@@ -27,3 +27,14 @@ def linkedListSearch(head, x):
 				return False
 			else:
 				head = head.next
+
+
+def linkedListReverse(head):
+	if head is None or head.next is None:
+		return head
+	rest = linkedListReverse(head.next)
+
+	head.next.next = head
+	head.next = None
+
+	return rest
