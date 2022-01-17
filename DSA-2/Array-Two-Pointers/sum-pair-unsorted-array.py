@@ -3,12 +3,16 @@ Find sum pair in unsorted array and return indices
 """
 
 def twoSum(nums, target):
-    buff = {}
+    d = {}
 
-    for i in range(len(nums)-1):
-        for j in range(i + 1, len(nums)):
-            if nums[i] + nums[j] == target:
-                return [i, j]
+    for i, e in enumerate(nums): 
+        # check if pair (e, target - e) exists
+        # if the difference is seen before, print the pair
+        if target - e in d:
+            return [d.get(target - e), i]
+
+        # store index of the current element in the dictionary
+        d[e] = i
 
 if __name__ == '__main__':
     n = int(input())
