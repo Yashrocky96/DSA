@@ -4,7 +4,6 @@ cmp is depreciated in 3.x python, it was moved to functools module
 """
 
 import functools
-from collections import namedtuple
 
 
 # Writing comparator function
