@@ -5,7 +5,7 @@ class ListNode:
         self.val = x
         self.next = None
 '''
-# Implement Solution Here
+
 def reverseLinkedList(head):
     # Base condition
     if head is None or head.next is None:
