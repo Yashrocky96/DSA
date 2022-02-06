@@ -17,3 +17,41 @@ def mergeTwoLists(l1, l2):
         temp = l2
         temp.next = mergeTwoLists(l1, l2.next)
     return temp
+
+"""
+Iterative approach of merging two lists
+"""
+def mergeTwoLists(left, right):
+    # Base conditions
+    if left is None:
+        return right
+    if right is None:
+        return left
+
+    # Base check and initializing result pointer
+    if left.val <= right.val:
+        result = left
+        left = left.next
+    else:
+        result = right
+        right = right.next
+
+    temp = result
+    # traversing left and right and merging them
+    while left and right:
+        # Check left or right value and insert into result
+        if left.val <= right.val:
+            temp.next = left
+            left = left.next
+        else:
+            temp.next = right
+            right = right.next
+        temp = temp.next
+
+    # Whichever list is not empty join that to the result
+    if left:
+        temp.next = left
+    if right:
+        temp.next = right
+        
+    return result
